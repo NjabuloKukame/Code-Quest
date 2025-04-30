@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+.logo-img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.nav {
+    background-color: var(--white);
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+    font-weight: 600;
+}

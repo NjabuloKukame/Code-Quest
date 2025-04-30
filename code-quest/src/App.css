@@ -1,0 +1,9 @@
+.background-image {
+  height: 95.4vh;             /* Keeps image within viewport height */
+  width: 97.9vw;              /* Almost full width, but leaves space for background */
+  padding: 10px;               /* Padding not needed if you use margin for spacing */
+  margin: 1vh auto;         /* Top and bottom margin + centers horizontally */
+  object-fit: cover;        /* Fills the box without stretching */
+  border-radius: 1.5rem;
+  display: block;
+}
