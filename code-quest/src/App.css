@@ -15,10 +15,94 @@
   display: block;
   z-index: -1;
   filter: blur(1px); /* Add a light blur effect */
-
 }
 
 .header-container {
   position: relative;
   z-index: 1;
+}
+
+.content-container {
+  position: relative;
+  gap: 20px;
+  z-index: 1;
+  text-align: center;
+  margin-top: 6vh;
+  color: var(--light-txt-color);
+  margin-inline: 4rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dark-mode .content-container {
+  color: var(--white);
+  backdrop-filter: blur(1px) brightness(0.9);
+  -webkit-backdrop-filter: blur(1px) brightness(0.9);
+  background-color: rgba(255, 255, 255, 0.02);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.content-title {
+  font-size: 70px;
+  font-weight: 600;
+  margin-bottom: calc(4% - 90px);
+}
+
+.content-description{
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 30px;
+  
+}
+
+.dark-mode .content-description{
+  color: var(--dark-mode-bg-color);
+  text-shadow: 0 13px 13px rgba(0, 0, 0, 0.9);
+  
+}
+
+.start-button {
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(90deg, #7aa9ee 0%, #c3a2f1 100%);
+  border: none;
+  border-radius: 9999px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(131, 131, 131, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-button a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.start-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(131, 131, 131, 0.25);
+  background: linear-gradient(90deg, #9dcdf7 0%, #d4b3ff 100%);
+}
+
+.dark-mode .start-button {
+  background: linear-gradient(135deg, #264653, #2a9d8f);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dark-mode .start-button:hover {
+  background: linear-gradient(135deg, #3aaf9f, #1d3557);
 }

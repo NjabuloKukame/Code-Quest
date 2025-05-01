@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useDarkMode } from "./components/DarkMode";
 import Header from "./components/Header";
 import lightBackgroundImage from "./assets/code-quest-light-mode.jpg";
@@ -21,6 +22,20 @@ function App() {
 
         <div className="header-container">
           <Header />
+        </div>
+
+        <div className="content-container">
+          <h1 className="content-title">Welcome To <br /> Code Quest</h1>
+          
+          <p className="content-description">
+            Embark on an interactive journey <br /> to master coding. 
+            Explore <br /> challenges, learn new skills, and <br />
+            level up your expertise.
+          </p>
+
+          
+          <div className="start-button"><Link to="/">Start</Link></div>
+
         </div>
       </div>
     </>
