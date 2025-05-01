@@ -1,9 +1,24 @@
+.app-body {
+  position: relative;
+}
+
 .background-image {
-  height: 95.4vh;             /* Keeps image within viewport height */
-  width: 97.9vw;              /* Almost full width, but leaves space for background */
-  padding: 10px;               /* Padding not needed if you use margin for spacing */
-  margin: 1vh auto;         /* Top and bottom margin + centers horizontally */
-  object-fit: cover;        /* Fills the box without stretching */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 95.4vh;
+  width: 100%;
+  margin: 1vh auto;
+  object-fit: cover;
   border-radius: 1.5rem;
   display: block;
+  z-index: -1;
+  filter: blur(1px); /* Add a light blur effect */
+
+}
+
+.header-container {
+  position: relative;
+  z-index: 1;
 }

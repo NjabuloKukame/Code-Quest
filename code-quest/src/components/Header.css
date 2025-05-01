@@ -1,13 +1,15 @@
 .header{
     display: flex;
     justify-content: space-between;
-    margin: 40px;
+    align-items: center;
+    padding: 30px;
 }
 
 .logo-img{
-    height: 70px;
-    width: 70px;
+    height: 55px;
+    width: 55px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .nav {
@@ -16,6 +18,50 @@
     border-radius: 9999px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
-    gap: 2rem;
+    gap: 6rem;
     font-weight: 600;
+    align-items: center;
+}
+
+.dark-mode .nav{
+    background-color: var(--dark-mode-bg-color);
+    border: 2px solid var(--dark-mode-green);
+}
+
+.nav a{
+    text-decoration: none;
+    color: var(--light-txt-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.dark-mode .nav a{
+    color: var(--white);
+}   
+
+.nav a:hover {
+    color: var(--light-blue);
+}
+
+.dark-mode-toggle{
+    background-color: var(--white);
+    padding: 1rem 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--light-blue);
+    color: var(--white);
+}
+
+.dark-mode .dark-mode-toggle{
+    background-color: transparent;
+    border: 2px solid var(--dark-mode-green);
+    color: var(--white);
 }

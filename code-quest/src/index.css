@@ -4,10 +4,19 @@
   /* Color Palette */
   --light-bg-color: #dfe0e0;
   --light-txt-color: #48586B;
+  --light-blue: #9bcdd4;
   --white: #F2F3F4;
+
+  /* Dark Mode */
+  --dark-mode-green: #86B686;
+  --dark-mode-bg-color: #091A21;
 }
 
 body{
   background-color: var(--light-bg-color);
   font-family: "Montserrat", sans-serif;
+}
+
+body.dark-mode  {
+  background-color: var(--dark-mode-bg-color);
 }
