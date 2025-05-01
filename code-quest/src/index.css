@@ -9,7 +9,10 @@
 
   /* Dark Mode */
   --dark-mode-green: #86B686;
-  --dark-mode-bg-color: #091A21;
+  --dark-mode-bg-color: #020d0b;
+  --dark-mode-gray: #7c8984;
+  --dark-mode-blue: #122d42;
+  --dark-mode-bg-gradient: linear-gradient(to bottom right, #122d42, #020d0b);
 }
 
 body{
@@ -18,5 +21,7 @@ body{
 }
 
 body.dark-mode  {
-  background-color: var(--dark-mode-bg-color);
+  background: var(--dark-mode-bg-gradient);
+  background-attachment: fixed; /* optional: makes it stay in place on scroll */
+  background-size: cover;
 }
