@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import quizData from "./QuizData.json";
 import "./Game.css";
 
@@ -60,10 +62,11 @@ function Game() {
           onChange={(e) => setUserCode(e.target.value)}
         />
         <div className="button-container">
-          <button className="hint-btn">Hint</button>
+          <button className="hint-btn"  onClick={() => toast.info(challenge.hint || "No hint available")}>Hint</button>
           <button className="submit-button">Submit</button>
         </div>
       </div>
+      <ToastContainer position="top-center" autoClose={3000} pauseOnHover={false}/>
     </div>
   );
 }

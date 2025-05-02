@@ -6,7 +6,8 @@
         "description": "Write an H1 tag that says 'Hello World'.",
         "starterCode": "<!-- Start here -->",
         "solution": "<h1>Hello World</h1>",
-        "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading."
+        "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading.",
+         "hint": "Use <h1> for the largest heading in HTML."
       },
       {
         "id": 2,
