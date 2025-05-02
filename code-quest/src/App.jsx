@@ -27,11 +27,15 @@ function App() {
         <div className="content-container">
           <h1 className="content-title">Welcome To <br /> Code Quest</h1>
           
-          <p className="content-description">
-            Embark on an interactive journey <br /> to master coding. 
-            Explore <br /> challenges, learn new skills, and <br />
-            level up your expertise.
-          </p>
+          <div className="content-description-container">
+            <p className="content-description">
+              Embark on an interactive journey <br /> to master coding. 
+              Explore <br /> challenges, learn new skills, and <br />
+              level up your expertise.
+            </p>
+          </div>
+
+          
 
           
           <div className="start-button"><Link to="/">Start</Link></div>
