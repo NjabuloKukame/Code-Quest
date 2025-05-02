@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import "./index.css";
 import App from "./App.jsx";
 import ChoosePath from "./ChoosePath.jsx";
+import Game from "./Game.jsx"; 
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/choose-path" element={<ChoosePath />} />
+          <Route path="/game/:language" element={<Game />} />
         </Routes>
       </Router>
     </DarkModeProvider>
