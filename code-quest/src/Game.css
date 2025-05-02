@@ -142,20 +142,6 @@
   color: var(--white);
 }
 
-.code-editor {
-  flex-grow: 1;
-  width: 100%;
-  border: none;
-  background-color: #1e1e2e;
-  color: #f8f8f2;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-
-  border-radius: 8px;
-  outline: none;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
-}
-
 .dark-mode .code-editor {
   background-color: #0d1f29;
   color: var(--white);
@@ -195,3 +181,18 @@
   background: linear-gradient(145deg, #7da7b4, #5a8d99);
   transform: scale(1.05);
 }
+
+.monaco-container {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .monaco-container.light {
+    border: 2px solid #999; 
+  }
+  
+  .monaco-container.dark {
+    border: 2px solid #0f293f;
+  }

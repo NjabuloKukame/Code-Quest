@@ -7,23 +7,8 @@
         "starterCode": "<!-- Start here -->",
         "solution": "<h1>Hello World</h1>",
         "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading.",
-         "hint": "Use <h1> for the largest heading in HTML."
-      },
-      {
-        "id": 2,
-        "title": "Add a Paragraph",
-        "description": "Write a paragraph that says 'This is my first paragraph.'",
-        "starterCode": "<!-- Start here -->",
-        "solution": "<p>This is my first paragraph.</p>",
-        "explanation": "The <p> tag is used for paragraphs in HTML. The text inside appears as a block of text."
-      },
-      {
-        "id": 3,
-        "title": "Insert an Image",
-        "description": "Add an image with the source 'cat.jpg' and an alt text of 'A cute cat'.",
-        "starterCode": "<!-- Start here -->",
-        "solution": "<img src=\"cat.jpg\" alt=\"A cute cat\">",
-        "explanation": "The <img> tag is used to embed images. The 'src' attribute defines the path and 'alt' provides alternate text."
+         "hint": "Use <h1> for the largest heading in HTML.",
+         "language": "html"
       }
     ],
     "CSS": [],

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import { useDarkMode } from "./components/DarkMode";
+import Editor from "@monaco-editor/react";
+import "react-toastify/dist/ReactToastify.css";
 import quizData from "./QuizData.json";
 import "./Game.css";
 
 function Game() {
+  const { darkMode } = useDarkMode();
   const { language } = useParams();
   const [challenges, setChallenges] = useState([]);
   const [currentChallenge, setCurrentChallenge] = useState(0);
@@ -55,18 +58,42 @@ function Game() {
       {/* Right Panel */}
       <div className="editor-panel">
         <div className="editor-label">Editor</div>
-        <textarea
-          className="code-editor"
-          placeholder="Write your code here..."
-          value={userCode}
-          onChange={(e) => setUserCode(e.target.value)}
-        />
+        <div className={`monaco-container ${darkMode ? "dark" : "light"}`}>
+          <Editor
+            height="100%"
+            language={challenge?.language?.toLowerCase() || "html"}
+            theme={darkMode ? "vs-dark" : "light"}
+            value={userCode}
+            onChange={(value) => setUserCode(value || "")}
+            options={{
+                fontSize: 18,
+                fontFamily: "Montserrat",
+                minimap: { enabled: false },
+                scrollBeyondLastLine: false,
+                scrollbar: {
+                  vertical: "auto", 
+                  horizontal: "auto",
+                  verticalScrollbarSize: 0,
+                  horizontalScrollbarSize: 0
+                }
+              }}
+          />
+        </div>
         <div className="button-container">
-          <button className="hint-btn"  onClick={() => toast.info(challenge.hint || "No hint available")}>Hint</button>
+          <button
+            className="hint-btn"
+            onClick={() => toast.info(challenge.hint || "No hint available")}
+          >
+            Hint
+          </button>
           <button className="submit-button">Submit</button>
         </div>
       </div>
-      <ToastContainer position="top-center" autoClose={3000} pauseOnHover={false}/>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        pauseOnHover={false}
+      />
     </div>
   );
 }
