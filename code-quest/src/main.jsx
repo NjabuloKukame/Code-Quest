@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App.jsx";
 import ChoosePath from "./ChoosePath.jsx";
 import Game from "./Game.jsx"; 
+import GameComplete from "./GameComplete.jsx"; 
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,6 +16,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<App />} />
           <Route path="/choose-path" element={<ChoosePath />} />
           <Route path="/game/:language" element={<Game />} />
+          <Route path="/game-complete" element={<GameComplete />} />
+
         </Routes>
       </Router>
     </DarkModeProvider>

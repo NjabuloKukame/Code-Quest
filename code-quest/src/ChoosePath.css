@@ -47,7 +47,7 @@
   border: none;
   cursor: pointer;
   background: linear-gradient(145deg, #9bcdd4, #7da7b4);
-  color: var(--light-txt-color);
+  color: var(--dark-mode-navy);
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }

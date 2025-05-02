@@ -1,16 +1,98 @@
 {
-    "HTML": [
-      {
-        "id": 1,
-        "title": "Create a Heading",
-        "description": "Write an H1 tag that says 'Hello World'.",
-        "starterCode": "<!-- Start here -->",
-        "solution": "<h1>Hello World</h1>",
-        "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading.",
-         "hint": "Use <h1> for the largest heading in HTML.",
-         "language": "html"
-      }
-    ],
-    "CSS": [],
-    "JavaScript": []
-  }
+  "HTML": [
+    {
+      "id": 1,
+      "title": "Create a Heading",
+      "description": "Write an H1 tag that says 'Hello World'.",
+      "starterCode": "<!-- Start here -->",
+      "solution": "<h1>Hello World</h1>",
+      "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading.",
+      "hint": "Use <h1> for the largest heading in HTML.",
+      "language": "html"
+    },
+    {
+      "id": 2,
+      "title": "Create an Unordered List",
+      "description": "Write an unordered list that contains three list items: 'HTML', 'CSS', and 'JavaScript'.",
+      "starterCode": "<!-- Start here -->",
+      "solution": "<ul>\n  <li>HTML</li>\n  <li>CSS</li>\n  <li>JavaScript</li>\n</ul>",
+      "explanation": "The <ul> tag is used to define an unordered list, and <li> tags are used for each list item. This displays the three technologies in a bulleted list format.",
+      "hint": "Use <ul> for the unordered list and <li> for each list item.",
+      "language": "html"
+    },
+    {
+      "id": 3,
+      "title": "Add a Button",
+      "description": "Create a button that says 'Click Me'.",
+      "starterCode": "<!-- Start here -->",
+      "solution": "<button>Click Me</button>",
+      "explanation": "The <button> tag is used to create clickable buttons.",
+      "hint": "Use the <button> tag with the label inside it.",
+      "language": "html"
+    }
+  ],
+  "CSS": [
+    {
+      "id": 1,
+      "title": "Change Text Color",
+      "description": "Write CSS that changes the color of the heading to blue.",
+      "starterCode": "h1 {\n  \n}",
+      "solution": "h1 {\n  color: blue;\n}",
+      "explanation": "The 'color' property sets the text color of the h1 element. Here, it changes the text to blue.",
+      "hint": "Use the 'color' property and target the 'h1' element.",
+      "language": "css"
+    },
+    {
+      "id": 2,
+      "title": "Style a Heading",
+      "description": "Make all h1 headings red and centered.",
+      "starterCode": "h1 {\n\n}",
+      "solution": "h1 {\n  color: red;\n  text-align: center;\n}",
+      "explanation": "Color changes the text and text-align centers it.",
+      "hint": "Use both 'color' and 'text-align'.",
+      "language": "css"
+    },
+    {
+      "id": 3,
+      "title": "Add Padding",
+      "description": "Add 20px padding to all paragraphs.",
+      "starterCode": "p {\n\n}",
+      "solution": "p {\n  padding: 20px;\n}",
+      "explanation": "'padding' adds space inside the element border.",
+      "hint": "Use 'padding: 20px;' inside the p selector.",
+      "language": "css"
+    }
+  ],
+  "JAVASCRIPT": [
+    {
+      "id": 1,
+      "title": "Change Text with JavaScript",
+      "description": "Change the text inside the paragraph with id='demo' to 'Welcome!'.",
+      "starterCode": "<p id=\"demo\">Old text</p>\n<script>\n// Start here\n</script>",
+      "solution": "<p id=\"demo\">Old text</p>\n<script>\ndocument.getElementById('demo').innerText = 'Welcome!';\n</script>",
+      "explanation": "We use 'getElementById' to access and modify the text.",
+      "hint": "Use document.getElementById and innerText.",
+      "language": "javascript"
+    },
+    {
+      "id": 2,
+      "title": "Add Click Event",
+      "description": "Make the button say 'Clicked!' when clicked.",
+      "starterCode": "<button onclick=\"myFunc()\">Click Me</button>\n<script>\nfunction myFunc() {\n  // Start here\n}\n</script>",
+      "solution": "<button onclick=\"myFunc()\">Click Me</button>\n<script>\nfunction myFunc() {\n  document.querySelector('button').innerText = 'Clicked!';\n}\n</script>",
+      "explanation": "When the button is clicked, it triggers a function that changes its text.",
+      "hint": "Use querySelector and innerText inside the function.",
+      "language": "javascript"
+    },
+    {
+      "id": 3,
+      "title": "Add a New Element",
+      "description": "Use JavaScript to add a new paragraph saying 'Hello JS!' to the body.",
+      "starterCode": "<script>\n// Start here\n</script>",
+      "solution": "<script>\nconst p = document.createElement('p');\np.innerText = 'Hello JS!';\ndocument.body.appendChild(p);\n</script>",
+      "explanation": "Create a new element and append it to the DOM using JavaScript.",
+      "hint": "Use createElement, innerText, and appendChild.",
+      "language": "javascript"
+    }
+  ]
+}
