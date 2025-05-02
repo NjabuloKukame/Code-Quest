@@ -22,9 +22,6 @@ function Header() {
           <div>Home</div>
         </Link>
         <Link to="/">
-          <div>Start</div>
-        </Link>
-        <Link to="/">
           <div>About</div>
         </Link>
       </nav>
