@@ -66,33 +66,34 @@
   "JAVASCRIPT": [
     {
       "id": 1,
-      "title": "Change Text with JavaScript",
-      "description": "Change the text inside the paragraph with id='demo' to 'Welcome!'.",
-      "starterCode": "<p id=\"demo\">Old text</p>\n<script>\n// Start here\n</script>",
-      "solution": "<p id=\"demo\">Old text</p>\n<script>\ndocument.getElementById('demo').innerText = 'Welcome!';\n</script>",
-      "explanation": "We use 'getElementById' to access and modify the text.",
-      "hint": "Use document.getElementById and innerText.",
+      "title": "Create a Button",
+      "description": "Write JavaScript to create a button with the text 'Click Me' and add it to the page.",
+      "starterCode": "// Start here",
+      "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Click Me';\ndocument.body.appendChild(btn);",
+      "hint": "Use `document.createElement()` and `appendChild()`.",
+      "explanation": "This dynamically adds a button to the page.",
       "language": "javascript"
     },
     {
       "id": 2,
-      "title": "Add Click Event",
-      "description": "Make the button say 'Clicked!' when clicked.",
-      "starterCode": "<button onclick=\"myFunc()\">Click Me</button>\n<script>\nfunction myFunc() {\n  // Start here\n}\n</script>",
-      "solution": "<button onclick=\"myFunc()\">Click Me</button>\n<script>\nfunction myFunc() {\n  document.querySelector('button').innerText = 'Clicked!';\n}\n</script>",
-      "explanation": "When the button is clicked, it triggers a function that changes its text.",
-      "hint": "Use querySelector and innerText inside the function.",
+      "title": "Make The Button Do Something",
+      "description": "Create a button that shows an alert saying 'Hello!' when clicked.",
+      "starterCode": "// Start here",
+      "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Say Hello';\nbtn.onclick = () => alert('Hello!');\ndocument.body.appendChild(btn);",
+      "hint": "Use `onclick` to add a click handler to the button.",
+      "explanation": "This introduces event handling and user interaction.",
       "language": "javascript"
     },
     {
       "id": 3,
-      "title": "Add a New Element",
-      "description": "Use JavaScript to add a new paragraph saying 'Hello JS!' to the body.",
-      "starterCode": "<script>\n// Start here\n</script>",
-      "solution": "<script>\nconst p = document.createElement('p');\np.innerText = 'Hello JS!';\ndocument.body.appendChild(p);\n</script>",
-      "explanation": "Create a new element and append it to the DOM using JavaScript.",
-      "hint": "Use createElement, innerText, and appendChild.",
+      "title": "Create a Color-Changing Button",
+      "description": "Create a button labeled 'Change Color'. When clicked, it should change the page's background color to lightblue.",
+      "starterCode": "// Start here",
+      "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Change Color';\nbtn.onclick = () => document.body.style.backgroundColor = 'lightblue';\ndocument.body.appendChild(btn);",
+      "hint": "Use `style.backgroundColor` to change the background color.",
+      "explanation": "This shows how to use DOM events and style manipulation in JavaScript.",
       "language": "javascript"
     }
+    
   ]
 }

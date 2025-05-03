@@ -22,7 +22,12 @@ function Game() {
   useEffect(() => {
     const formattedLang = language.toUpperCase();
     if (formattedLang === "ALL") {
-      const allChallenges = Object.values(quizData).flat();
+      const allChallenges = Object.values(quizData)
+        .flat()
+        .map((challenge, index) => ({
+          ...challenge,
+          id: index + 1, // Reassign a global sequential ID
+        }));
       setChallenges(allChallenges);
     } else {
       setChallenges(quizData[formattedLang] || []);
@@ -50,26 +55,12 @@ function Game() {
     if (!challenge) return;
 
     const normalize = (str) => str.replace(/[\n\r\s]+/g, "").toLowerCase();
-    const cleanedUserCode = userCode.replace(challenge.starterCode, "");
+    const cleanedUserCode = userCode.replace(challenge.starterCode, "").trim();
     const user = normalize(cleanedUserCode);
     const solution = normalize(challenge.solution);
 
     if (user === solution) {
-      if (currentChallenge + 1 >= challenges.length) {
-        const timeTaken = Date.now() - startTime;
-
-        navigate("/game-complete", {
-          state: {
-            timeTaken,
-            attempts,
-            hintsUsed,
-            total: challenges.length,
-            language,
-          },
-        });
-      } else {
-        setShowModal(true);
-      }
+      setShowModal(true); // Always show modal first
     } else {
       setAttempts((prev) => prev + 1);
       toast.error("Oops! That's not quite right.");
@@ -78,7 +69,24 @@ function Game() {
 
   const handleNext = () => {
     setShowModal(false);
-    setCurrentChallenge((prev) => prev + 1);
+
+    const isLastChallenge = currentChallenge === challenges.length - 1;
+
+    if (isLastChallenge) {
+      const timeTaken = Date.now() - startTime;
+
+      navigate("/game-complete", {
+        state: {
+          timeTaken,
+          attempts,
+          hintsUsed,
+          total: challenges.length,
+          language,
+        },
+      });
+    } else {
+      setCurrentChallenge((prev) => prev + 1);
+    }
   };
 
   return (
@@ -93,14 +101,31 @@ function Game() {
 
             <div className="preview-box">
               <div className="preview-label">Preview</div>
-              <div
+              <iframe
+                title="preview"
                 className="preview-output"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    challenge?.language === "css"
-                      ? `<style>${userCode}</style><h1>Hello World</h1><p>This is a test paragraph.</p>` // or whatever preview content you want
-                      : userCode,
-                }}
+                srcDoc={
+                  challenge?.language === "css"
+                    ? `<html><head>
+                        <style>
+                          body { font-family: Montserrat, sans-serif; color: #fff; }
+                          ${userCode}
+                        </style>
+                      </head><body><h1>Hello World</h1><p>This is a test paragraph.</p></body></html>`
+                    : challenge?.language === "javascript"
+                    ? `<html><head>
+                        <style>
+                          body { font-family: Montserrat, sans-serif; color: #fff; }
+                        </style>
+                      </head><body><script>${userCode}<\/script></body></html>`
+                    : `<html><head>
+                        <style>
+                          body { font-family: Montserrat, sans-serif; color: #fff; }
+                        </style>
+                      </head><body>${userCode}</body></html>`
+                }
+                sandbox="allow-scripts allow-modals"
+                style={{ width: "95%", height: "fit-content", border: "none" }}
               />
             </div>
           </>
@@ -158,7 +183,11 @@ function Game() {
           <div className="game-modal-content">
             <h2>✅ Correct!</h2>
             <p>{challenge.explanation}</p>
-            <button onClick={handleNext}>Next Question</button>
+            <button onClick={handleNext}>
+              {currentChallenge === challenges.length - 1
+                ? "End Quiz"
+                : "Next Question"}
+            </button>
           </div>
         </div>
       )}
