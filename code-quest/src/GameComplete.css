@@ -1,11 +1,10 @@
 .game-complete-container {
-  padding: 2rem;
+  padding: 1.8rem;
   text-align: center;
   max-width: 900px;
   margin: auto;
   background: var(--light-blue);
   border-radius: 25px;
-  margin-top: 10%;
 }
 
 .dark-mode .game-complete-container {
@@ -17,7 +16,7 @@
 
 .stats-box {
     font-size: 1.3rem;
-  margin-top: 1.5rem;
+  margin-top: 1.1rem;
   background-color: #f4f4f4;
   padding: 1rem;
   border-radius: 10px;
@@ -31,7 +30,7 @@
 }
 
 .complete-buttons {
-  margin-top: 2rem;
+  margin-top: 1.4rem;
 }
 
 .complete-buttons button {
@@ -44,6 +43,7 @@
   font-weight: bold;
   cursor: pointer;
   width: 250px;
+  font-size: 14px;
 }
 
 .complete-buttons button:hover {
@@ -65,3 +65,30 @@
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
+
+.achievement-box {
+  margin-top: 1.3rem;
+  background-color: #fff8dc;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #333;
+  font-size: 1.2rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.achievement-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.achievement-box li {
+  margin: 0.5rem 0;
+}
+
+.dark-mode .achievement-box {
+  background-color: #2e3b3f;
+  color: var(--white);
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+              2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+

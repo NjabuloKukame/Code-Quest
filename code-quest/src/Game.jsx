@@ -126,6 +126,7 @@ function Game() {
                 }
                 sandbox="allow-scripts allow-modals"
                 style={{ width: "95%", height: "fit-content", border: "none" }}
+                
               />
             </div>
           </>
