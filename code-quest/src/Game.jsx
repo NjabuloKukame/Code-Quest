@@ -26,7 +26,7 @@ function Game() {
         .flat()
         .map((challenge, index) => ({
           ...challenge,
-          id: index + 1, // Reassign a global sequential ID
+          id: index + 1, 
         }));
       setChallenges(allChallenges);
     } else {
@@ -60,7 +60,7 @@ function Game() {
     const solution = normalize(challenge.solution);
 
     if (user === solution) {
-      setShowModal(true); // Always show modal first
+      setShowModal(true); 
     } else {
       setAttempts((prev) => prev + 1);
       toast.error("Oops! That's not quite right.");
@@ -108,19 +108,19 @@ function Game() {
                   challenge?.language === "css"
                     ? `<html><head>
                         <style>
-                          body { font-family: Montserrat, sans-serif; color: #fff; }
+                          body { font-family: Montserrat, sans-serif; color: ${darkMode ? "#fff" : "#000"}}
                           ${userCode}
                         </style>
                       </head><body><h1>Hello World</h1><p>This is a test paragraph.</p></body></html>`
                     : challenge?.language === "javascript"
                     ? `<html><head>
                         <style>
-                          body { font-family: Montserrat, sans-serif; color: #fff; }
+                          body { font-family: Montserrat, sans-serif; color: ${darkMode ? "#fff" : "#000"}}
                         </style>
                       </head><body><script>${userCode}<\/script></body></html>`
                     : `<html><head>
                         <style>
-                          body { font-family: Montserrat, sans-serif; color: #fff; }
+                          body { font-family: Montserrat, sans-serif; color: ${darkMode ? "#fff" : "#000"}}
                         </style>
                       </head><body>${userCode}</body></html>`
                 }
