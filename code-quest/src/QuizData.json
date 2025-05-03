@@ -1,0 +1,99 @@
+{
+  "HTML": [
+    {
+      "id": 1,
+      "title": "Create a Heading",
+      "description": "Write an H1 tag that says 'Hello World'.",
+      "starterCode": "<!-- Start here -->",
+      "solution": "<h1>Hello World</h1>",
+      "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading.",
+      "hint": "Use <h1> for the largest heading in HTML.",
+      "language": "html"
+    },
+    {
+      "id": 2,
+      "title": "Create an Unordered List",
+      "description": "Write an unordered list that contains three list items: 'HTML', 'CSS', and 'JavaScript'.",
+      "starterCode": "<!-- Start here -->",
+      "solution": "<ul>\n  <li>HTML</li>\n  <li>CSS</li>\n  <li>JavaScript</li>\n</ul>",
+      "explanation": "The <ul> tag is used to define an unordered list, and <li> tags are used for each list item. This displays the three technologies in a bulleted list format.",
+      "hint": "Use <ul> for the unordered list and <li> for each list item.",
+      "language": "html"
+    },
+    {
+      "id": 3,
+      "title": "Add a Button",
+      "description": "Create a button that says 'Click Me'.",
+      "starterCode": "<!-- Start here -->",
+      "solution": "<button>Click Me</button>",
+      "explanation": "The <button> tag is used to create clickable buttons.",
+      "hint": "Use the <button> tag with the label inside it.",
+      "language": "html"
+    }
+  ],
+  "CSS": [
+    {
+      "id": 1,
+      "title": "Change Text Color",
+      "description": "Write CSS that changes the color of the heading to blue.",
+      "starterCode": "h1 {\n  \n}",
+      "solution": "h1 {\n  color: blue;\n}",
+      "explanation": "The 'color' property sets the text color of the h1 element. Here, it changes the text to blue.",
+      "hint": "Use the 'color' property and target the 'h1' element.",
+      "language": "css"
+    },
+    {
+      "id": 2,
+      "title": "Style a Heading",
+      "description": "Make all h1 headings red and centered.",
+      "starterCode": "h1 {\n\n}",
+      "solution": "h1 {\n  color: red;\n  text-align: center;\n}",
+      "explanation": "Color changes the text and text-align centers it.",
+      "hint": "Use both 'color' and 'text-align'.",
+      "language": "css"
+    },
+    {
+      "id": 3,
+      "title": "Add Padding",
+      "description": "Add 20px padding to all paragraphs.",
+      "starterCode": "p {\n\n}",
+      "solution": "p {\n  padding: 20px;\n}",
+      "explanation": "'padding' adds space inside the element border.",
+      "hint": "Use 'padding: 20px;' inside the p selector.",
+      "language": "css"
+    }
+  ],
+  "JAVASCRIPT": [
+    {
+      "id": 1,
+      "title": "Create a Button",
+      "description": "Write JavaScript to create a button with the text 'Click Me' and add it to the page.",
+      "starterCode": "// Start here",
+      "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Click Me';\ndocument.body.appendChild(btn);",
+      "hint": "Use `document.createElement()` and `appendChild()`.",
+      "explanation": "This dynamically adds a button to the page.",
+      "language": "javascript"
+    },
+    {
+      "id": 2,
+      "title": "Make The Button Do Something",
+      "description": "Create a button that shows an alert saying 'Hello!' when clicked.",
+      "starterCode": "// Start here",
+      "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Say Hello';\nbtn.onclick = () => alert('Hello!');\ndocument.body.appendChild(btn);",
+      "hint": "Use `onclick` to add a click handler to the button.",
+      "explanation": "This introduces event handling and user interaction.",
+      "language": "javascript"
+    },
+    {
+      "id": 3,
+      "title": "Create a Color-Changing Button",
+      "description": "Create a button labeled 'Change Color'. When clicked, it should change the page's background color to lightblue.",
+      "starterCode": "// Start here",
+      "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Change Color';\nbtn.onclick = () => document.body.style.backgroundColor = 'lightblue';\ndocument.body.appendChild(btn);",
+      "hint": "Use `style.backgroundColor` to change the background color.",
+      "explanation": "This shows how to use DOM events and style manipulation in JavaScript.",
+      "language": "javascript"
+    }
+    
+  ]
+}

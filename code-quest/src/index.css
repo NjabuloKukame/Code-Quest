@@ -4,10 +4,32 @@
   /* Color Palette */
   --light-bg-color: #dfe0e0;
   --light-txt-color: #48586B;
+  --light-blue: #9bcdd4;
   --white: #F2F3F4;
+  --light-mode-gradient: linear-gradient(
+    to bottom right,
+    #e4e5e5 80%,
+    #739dc3 100%
+  );
+
+  /* Dark Mode */
+  --dark-mode-green: #86b686;
+  --dark-mode-bg-color: #020d0b;
+  --dark-mode-gray: #7c8984;
+  --dark-mode-blue: #122d42;
+  --dark-mode-navy: #07151f;
+  --dark-mode-bg-gradient: linear-gradient(to bottom right, #122d42, #020d0b);
 }
 
 body{
-  background-color: var(--light-bg-color);
+  background: var(--light-mode-gradient);
+  background-attachment: fixed; /* optional: makes it stay in place on scroll */
+  background-size: cover;
   font-family: "Montserrat", sans-serif;
+}
+
+body.dark-mode  {
+  background: var(--dark-mode-bg-gradient);
+  background-attachment: fixed; /* optional: makes it stay in place on scroll */
+  background-size: cover;
 }

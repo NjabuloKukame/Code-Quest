@@ -1,0 +1,67 @@
+.game-complete-container {
+  padding: 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  background: var(--light-blue);
+  border-radius: 25px;
+  margin-top: 10%;
+}
+
+.dark-mode .game-complete-container {
+  background: #0d1f29;
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+        2px 4px 10px rgba(0, 0, 0, 0.4);
+  color: var(--white);
+}
+
+.stats-box {
+    font-size: 1.3rem;
+  margin-top: 1.5rem;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.dark-mode .stats-box {
+  background-color: #1b353d;
+  color: var(--white);
+    box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+        2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.complete-buttons {
+  margin-top: 2rem;
+}
+
+.complete-buttons button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--dark-mode-blue);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 250px;
+}
+
+.complete-buttons button:hover {
+  background-color: var(--light-txt-color);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .complete-buttons button {
+  background-color: var(--white);
+  color: var(--dark-mode-blue);
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+        2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .complete-buttons button:hover {
+  background-color: var(--dark-mode-blue);
+  color: var(--white);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
