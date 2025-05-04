@@ -6,6 +6,8 @@
   --light-txt-color: #48586B;
   --light-blue: #9bcdd4;
   --white: #F2F3F4;
+  --pure-white: #FFF;
+  --black: #111;
   --light-mode-gradient: linear-gradient(
     to bottom right,
     #e4e5e5 80%,

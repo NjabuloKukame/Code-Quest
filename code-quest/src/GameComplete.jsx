@@ -31,11 +31,15 @@ function GameComplete() {
   } else if (timeTaken < 60000) {
     achievements.push("⏱ Quick Thinker! (Finished in under a minute)");
   } else if (timeTaken < 180000) {
-    achievements.push("🧘 Chill Coder! (Took your time and did it under 3 min)");
+    achievements.push(
+      "🧘 Chill Coder! (Took your time and did it under 3 min)"
+    );
   } else {
-    achievements.push("🐢 Slow and Steady! (Took over 3 minutes, but made it!)");
+    achievements.push(
+      "🐢 Slow and Steady! (Took over 3 minutes, but made it!)"
+    );
   }
-  
+
   if (attempts === 0) {
     achievements.push("🎯 One Shot Wonder! (No incorrect attempts)");
   } else if (attempts <= 2) {
@@ -43,9 +47,11 @@ function GameComplete() {
   } else if (attempts >= 5) {
     achievements.push("😤 Never Give Up! (Tried 5+ times but you got there!)");
   } else if (attempts >= 10) {
-    achievements.push("🧗‍♂️ Climbing the Walls! (10+ incorrect attempts, but you made it!)");
-  }  
-  
+    achievements.push(
+      "🧗‍♂️ Climbing the Walls! (10+ incorrect attempts, but you made it!)"
+    );
+  }
+
   if (hintsUsed === 0) {
     achievements.push("🧠 Perfectionist! (Used no hints)");
   } else if (hintsUsed <= 2) {
@@ -59,9 +65,11 @@ function GameComplete() {
   if (total >= 9) {
     achievements.push("🏋️ Heavy Lifter! (Completed a long challenge set)");
   } else if (total <= 3) {
-    achievements.push("🍬 Snack-Sized Win! (Short and sweet 3 question challenge completed)");
+    achievements.push(
+      "🍬 Snack-Sized Win! (Short and sweet 3 question challenge completed)"
+    );
   }
-  
+
   return (
     <div className="game-complete-container">
       {showConfetti && <Confetti width={width} height={height} />}
@@ -87,9 +95,24 @@ function GameComplete() {
         <div className="achievement-box">
           <h2>🏆 Achievements</h2>
           <ul>
-            {achievements.map((achieve, idx) => (
-              <li key={idx}>{achieve}</li>
-            ))}
+            {achievements.map((achieve, idx) => {
+              const [emoji, text] = achieve.split(" ", 2);
+              const rest = achieve.replace(`${emoji} `, "").split(" (");
+              const title = rest[0];
+              const description = rest[1] ? rest[1].replace(")", "") : "";
+
+              return (
+                <li className="achievement-item" key={idx}>
+                  <span className="achievement-emoji">{emoji}</span>
+                  <div className="achievement-text">
+                    <strong className="achievement-title">{title}</strong>
+                    {description && (
+                      <div className="achievement-desc">{description}</div>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
