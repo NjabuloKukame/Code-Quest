@@ -62,11 +62,15 @@ function GameComplete() {
   } else if (hintsUsed <= 8) {
     achievements.push("🧐 Hint Hoarder! (You used a lot... strategically?)");
   } else if (hintsUsed <= 10) {
-    achievements.push("🧙‍♂️ Hint Wizard! (Used many hints, but made it through!)");
+    achievements.push(
+      "🧙‍♂️ Hint Wizard! (Used many hints, but made it through!)"
+    );
   } else if (hintsUsed <= 12) {
     achievements.push("📚 Hint Addict! (Were you reading the whole book?)");
   } else {
-    achievements.push("😂 Hint Monster! (You unlocked every hint... and then some!)");
+    achievements.push(
+      "😂 Hint Monster! (You unlocked every hint... and then some!)"
+    );
   }
 
   if (total >= 9) {
@@ -81,7 +85,7 @@ function GameComplete() {
   const retrySameQuiz = () => {
     navigate(`/game/${language}`, {
       state: {
-        retry: true, 
+        retry: true,
       },
     });
   };
@@ -112,10 +116,10 @@ function GameComplete() {
           <h2>🏆 Achievements</h2>
           <ul>
             {achievements.map((achieve, idx) => {
-              const [emoji, text] = achieve.split(" ", 2);
-              const rest = achieve.replace(`${emoji} `, "").split(" (");
-              const title = rest[0];
-              const description = rest[1] ? rest[1].replace(")", "") : "";
+              const emoji = achieve.slice(0, 2); 
+              const restText = achieve.slice(2).trim(); 
+              const [title, rawDesc] = restText.split(" (");
+              const description = rawDesc ? rawDesc.replace(")", "") : "";
 
               return (
                 <li className="achievement-item" key={idx}>
@@ -134,7 +138,7 @@ function GameComplete() {
       )}
 
       <div className="complete-buttons">
-      <button onClick={retrySameQuiz}>Retry Same Quiz</button>
+        <button onClick={retrySameQuiz}>Retry Same Quiz</button>
 
         <button onClick={() => navigate("/choose-path")}>
           Choose Different Language
