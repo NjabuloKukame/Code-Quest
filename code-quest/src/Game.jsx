@@ -18,6 +18,7 @@ function Game() {
   const [startTime, setStartTime] = useState(Date.now());
   const [attempts, setAttempts] = useState(0);
   const [hintsUsed, setHintsUsed] = useState(0);
+  const [hintStepMap, setHintStepMap] = useState({});
 
   useEffect(() => {
     const formattedLang = language.toUpperCase();
@@ -26,7 +27,7 @@ function Game() {
         .flat()
         .map((challenge, index) => ({
           ...challenge,
-          id: index + 1, 
+          id: index + 1,
         }));
       setChallenges(allChallenges);
     } else {
@@ -60,7 +61,7 @@ function Game() {
     const solution = normalize(challenge.solution);
 
     if (user === solution) {
-      setShowModal(true); 
+      setShowModal(true);
     } else {
       setAttempts((prev) => prev + 1);
       toast.error("Oops! That's not quite right.");
@@ -108,25 +109,30 @@ function Game() {
                   challenge?.language === "css"
                     ? `<html><head>
                         <style>
-                          body { font-family: Montserrat, sans-serif; color: ${darkMode ? "#fff" : "#000"}}
+                          body { font-family: Montserrat, sans-serif; color: ${
+                            darkMode ? "#fff" : "#000"
+                          }}
                           ${userCode}
                         </style>
                       </head><body><h1>Hello World</h1><p>This is a test paragraph.</p></body></html>`
                     : challenge?.language === "javascript"
                     ? `<html><head>
                         <style>
-                          body { font-family: Montserrat, sans-serif; color: ${darkMode ? "#fff" : "#000"}}
+                          body { font-family: Montserrat, sans-serif; color: ${
+                            darkMode ? "#fff" : "#000"
+                          }}
                         </style>
                       </head><body><script>${userCode}<\/script></body></html>`
                     : `<html><head>
                         <style>
-                          body { font-family: Montserrat, sans-serif; color: ${darkMode ? "#fff" : "#000"}}
+                          body { font-family: Montserrat, sans-serif; color: ${
+                            darkMode ? "#fff" : "#000"
+                          }}
                         </style>
                       </head><body>${userCode}</body></html>`
                 }
                 sandbox="allow-scripts allow-modals"
                 style={{ width: "95%", height: "fit-content", border: "none" }}
-                
               />
             </div>
           </>
@@ -163,12 +169,34 @@ function Game() {
           <button
             className="hint-btn"
             onClick={() => {
-              setHintsUsed((prev) => prev + 1);
-              toast.info(challenge.hint || "No hint available");
+              const hints = challenge.hint; // { hint1, hint2, hint3 }
+              const hintKeys = ["hint1", "hint2", "hint3"];
+
+              // Get current step for this challenge (fallback to 0)
+              const currentStep = hintStepMap[challenge.id] || 0;
+
+              if (
+                currentStep < hintKeys.length &&
+                hints[hintKeys[currentStep]]
+              ) {
+                toast.info(hints[hintKeys[currentStep]]);
+
+                // Increment step for this challenge only
+                setHintStepMap((prevMap) => ({
+                  ...prevMap,
+                  [challenge.id]: currentStep + 1,
+                }));
+
+                // Track total hints used (global)
+                setHintsUsed((prev) => prev + 1);
+              } else {
+                toast.info("No more hints available.");
+              }
             }}
           >
             Hint
           </button>
+
           <button className="submit-button" onClick={handleSubmit}>
             Submit
           </button>

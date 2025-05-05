@@ -7,7 +7,11 @@
       "starterCode": "<!-- Start here -->",
       "solution": "<h1>Hello World</h1>",
       "explanation": "The <h1> tag defines the most important heading. In this case, it displays 'Hello World' as a top-level heading.",
-      "hint": "Use <h1> for the largest heading in HTML.",
+      "hint": {
+        "hint1": "HTML has heading tags like <h1> to <h6>.",
+        "hint2": "<h1> is used for main titles.",
+        "hint3": "Use <h1>Hello World</h1>."
+      },
       "language": "html"
     },
     {
@@ -17,7 +21,11 @@
       "starterCode": "<!-- Start here -->",
       "solution": "<ul>\n  <li>HTML</li>\n  <li>CSS</li>\n  <li>JavaScript</li>\n</ul>",
       "explanation": "The <ul> tag is used to define an unordered list, and <li> tags are used for each list item. This displays the three technologies in a bulleted list format.",
-      "hint": "Use <ul> for the unordered list and <li> for each list item.",
+      "hint": {
+        "hint1": "Use <ul> for unordered lists.",
+        "hint2": "Wrap each item in <li> tags.",
+        "hint3": "Use <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>"
+      },
       "language": "html"
     },
     {
@@ -27,7 +35,11 @@
       "starterCode": "<!-- Start here -->",
       "solution": "<button>Click Me</button>",
       "explanation": "The <button> tag is used to create clickable buttons.",
-      "hint": "Use the <button> tag with the label inside it.",
+      "hint": {
+        "hint1": "Buttons in HTML are created with the <button> tag.",
+        "hint2": "Put the text inside the button tags.",
+        "hint3": "Use <button>Click Me</button>."
+      },
       "language": "html"
     }
   ],
@@ -39,7 +51,11 @@
       "starterCode": "h1 {\n  \n}",
       "solution": "h1 {\n  color: blue;\n}",
       "explanation": "The 'color' property sets the text color of the h1 element. Here, it changes the text to blue.",
-      "hint": "Use the 'color' property and target the 'h1' element.",
+      "hint": {
+        "hint1": "Use the 'color' property in your CSS rule.",
+        "hint2": "Target the h1 element directly.",
+        "hint3": "Write: h1 { color: blue; }"
+      },
       "language": "css"
     },
     {
@@ -49,7 +65,11 @@
       "starterCode": "h1 {\n\n}",
       "solution": "h1 {\n  color: red;\n  text-align: center;\n}",
       "explanation": "Color changes the text and text-align centers it.",
-      "hint": "Use both 'color' and 'text-align'.",
+      "hint": {
+        "hint1": "You need two properties: color and text-align.",
+        "hint2": "Color should be red; text-align should be center.",
+        "hint3": "Write: h1 { color: red; text-align: center; }"
+      },
       "language": "css"
     },
     {
@@ -59,7 +79,11 @@
       "starterCode": "p {\n\n}",
       "solution": "p {\n  padding: 20px;\n}",
       "explanation": "'padding' adds space inside the element border.",
-      "hint": "Use 'padding: 20px;' inside the p selector.",
+      "hint": {
+        "hint1": "Use the padding property inside the p selector.",
+        "hint2": "Set the padding to 20px.",
+        "hint3": "Write: p { padding: 20px; }"
+      },
       "language": "css"
     }
   ],
@@ -70,7 +94,11 @@
       "description": "Write JavaScript to create a button with the text 'Click Me' and add it to the page.",
       "starterCode": "// Start here",
       "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Click Me';\ndocument.body.appendChild(btn);",
-      "hint": "Use `document.createElement()` and `appendChild()`.",
+      "hint": {
+        "hint1": "Use document.createElement to create a button.",
+        "hint2": "Set its text using textContent.",
+        "hint3": "Append it using document.body.appendChild."
+      },
       "explanation": "This dynamically adds a button to the page.",
       "language": "javascript"
     },
@@ -80,7 +108,11 @@
       "description": "Create a button that shows an alert saying 'Hello!' when clicked.",
       "starterCode": "// Start here",
       "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Say Hello';\nbtn.onclick = () => alert('Hello!');\ndocument.body.appendChild(btn);",
-      "hint": "Use `onclick` to add a click handler to the button.",
+      "hint": {
+        "hint1": "Create a button element and set its label.",
+        "hint2": "Use the onclick property to define the alert behavior.",
+        "hint3": "Use alert('Hello!') inside the click handler."
+      },
       "explanation": "This introduces event handling and user interaction.",
       "language": "javascript"
     },
@@ -90,7 +122,11 @@
       "description": "Create a button labeled 'Change Color'. When clicked, it should change the page's background color to lightblue.",
       "starterCode": "// Start here",
       "solution": "const btn = document.createElement('button');\nbtn.textContent = 'Change Color';\nbtn.onclick = () => document.body.style.backgroundColor = 'lightblue';\ndocument.body.appendChild(btn);",
-      "hint": "Use `style.backgroundColor` to change the background color.",
+      "hint": {
+        "hint1": "Create a button labeled 'Change Color'.",
+        "hint2": "Use onclick to update document.body.style.backgroundColor.",
+        "hint3": "Set backgroundColor to 'lightblue'."
+      },
       "explanation": "This shows how to use DOM events and style manipulation in JavaScript.",
       "language": "javascript"
     }

@@ -16,6 +16,7 @@ function GameComplete() {
     return () => clearTimeout(timer); // Cleanup
   }, []);
 
+  // Check if the state is available
   if (!state) return <p>Session data missing.</p>;
 
   const { timeTaken, attempts, hintsUsed, total, language } = state;
@@ -58,8 +59,14 @@ function GameComplete() {
     achievements.push("💡 Clever Solver! (Used only a few hints)");
   } else if (hintsUsed <= 5) {
     achievements.push("😅 Hint Goblin! (You really liked those hints!)");
-  } else if (hintsUsed >= 10) {
-    achievements.push("🧙‍♂️ Hint Wizard! (Used 10+ hints, but you made it!)");
+  } else if (hintsUsed <= 8) {
+    achievements.push("🧐 Hint Hoarder! (You used a lot... strategically?)");
+  } else if (hintsUsed <= 10) {
+    achievements.push("🧙‍♂️ Hint Wizard! (Used many hints, but made it through!)");
+  } else if (hintsUsed <= 12) {
+    achievements.push("📚 Hint Addict! (Were you reading the whole book?)");
+  } else {
+    achievements.push("😂 Hint Monster! (You unlocked every hint... and then some!)");
   }
 
   if (total >= 9) {
@@ -69,6 +76,15 @@ function GameComplete() {
       "🍬 Snack-Sized Win! (Short and sweet 3 question challenge completed)"
     );
   }
+
+  // Function to retry the same quiz
+  const retrySameQuiz = () => {
+    navigate(`/game/${language}`, {
+      state: {
+        retry: true, 
+      },
+    });
+  };
 
   return (
     <div className="game-complete-container">
@@ -118,7 +134,8 @@ function GameComplete() {
       )}
 
       <div className="complete-buttons">
-        <button onClick={() => navigate(0)}>Retry Same Quiz</button>
+      <button onClick={retrySameQuiz}>Retry Same Quiz</button>
+
         <button onClick={() => navigate("/choose-path")}>
           Choose Different Language
         </button>
