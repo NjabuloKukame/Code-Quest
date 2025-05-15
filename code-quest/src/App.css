@@ -14,7 +14,7 @@
   border-radius: 1.5rem;
   display: block;
   z-index: -1;
-  filter: blur(1px); /* Add a light blur effect */
+  filter: blur(0.9px); 
 }
 
 .header-container {
