@@ -1,0 +1,141 @@
+body.code-play-body {
+    background: var(--light-codeplay-bg-color); 
+    color: var(--light-txt-color); 
+    font-family: "Montserrat", sans-serif; 
+}
+
+body.dark-mode.code-play-body {
+    background: var(--dark-mode-dark-green); 
+    color: var(--white); 
+}
+
+body.code-play-body .background-image {  
+    filter: blur(4px); 
+}
+
+.code-play-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-txt-color);
+    margin-top: calc(4% - 100px);
+}
+
+.dark-mode .code-play-container{
+    color: var(--white);
+}
+
+.code-play-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-image {
+    flex-shrink: 0; 
+    height: auto; 
+    width: auto; 
+    max-width: 250px; 
+    max-height: 250px; 
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.banner-text{
+    flex: 1;
+    text-align: left;
+}
+
+.banner-title{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.banner-description{
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-wrap: wrap;
+}
+
+.challenges-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    color: var(--white);
+    box-shadow: 0 0 30px rgba(255, 223, 0, 0), 0px 20px 50px rgba(0, 0, 0, .2), inset 1px 1px 3px hsla(0, 0%, 100%, .1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.dark-mode .challenges-container{
+    background: rgba(18, 45, 66, 0.4); 
+    color: var(--white);
+}
+
+.challenges-title{
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.challenges-card-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin: 5px 0;
+    display: flex;
+    padding: 0 0 0 20px;
+}
+
+.challenges-card{
+    display: flex;
+    align-items: center;
+    background: transparent;
+    box-shadow: 0 0 30px rgba(255, 223, 0, 0), 0px 20px 50px rgba(0, 0, 0, .2), inset 1px 1px 3px hsla(0, 0%, 100%, .1);
+    border: 2px solid var(--white);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    flex-direction: column;
+    height: 280px;
+    width: 250px;
+    backdrop-filter: blur(7px);
+    text-align: center;
+    cursor: pointer;
+}
+
+.dark-mode .challenges-card{
+    color: var(--white);
+    border: 2px solid var(--dark-mode-dark-green);
+}
+
+.challenges-card:hover{
+    background: var(--light-codeplay-bg-color);
+    box-shadow: 0 0 30px rgba(255, 223, 0, 0), 0px 20px 50px rgba(0, 0, 0, .2), inset 1px 1px 3px hsla(0, 0%, 100%, .1);
+    transition: all .3s ease;
+}
+
+.dark-mode .challenges-card:hover{
+    background: var(--dark-mode-dark-green); 
+}
+
+.challenge-thumbnail{
+    width: auto;
+    height: 175px;
+    border-radius: 10px;
+}
+
+.challenge-card-title{
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 5px;
+}
+
+.challenge-card-description{
+    font-weight: 400;
+}
+

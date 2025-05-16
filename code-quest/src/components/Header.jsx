@@ -21,6 +21,9 @@ function Header() {
         <Link to="/">
           <div>Home</div>
         </Link>
+        <Link to="/code-play">
+          <div>Code Play</div>
+        </Link>
         <Link to="/">
           <div>About</div>
         </Link>
