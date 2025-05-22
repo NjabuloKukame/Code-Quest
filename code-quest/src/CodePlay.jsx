@@ -1,15 +1,18 @@
 import { useDarkMode } from "./components/DarkMode";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import Header from "./components/Header";
 import lightBackgroundImage from "./assets/code-play-light-bg.jpg";
 import darkBackgroundImage from "./assets/code-play-dark-bg.jpg";
-import darkCodePlayImage from "./assets/code-play-dark.png";
+import soccerThumbnail from "./assets/soccer-thumbnail.jpg";
+import racingThumbnail from "./assets/racing-thumbnail.jpg";
 import lightCodePlayImage from "./assets/code-play-light.png";
 import "./App.css";
 import "./CodePlay.css";
 
 function CodePlay() {
   const { darkMode } = useDarkMode();
+  const navigate = useNavigate();
 
   // useEffect to add a class to the body when the component mounts
   useEffect(() => {
@@ -19,6 +22,23 @@ function CodePlay() {
       document.body.classList.remove("code-play-body");
     };
   }, []);
+
+  const challenges = [
+    {
+      id: "soccer",
+      title: "Score A Goal",
+      description: "Use CSS to animate the ball into the net",
+      image: soccerThumbnail, 
+      route: "/code-play/soccer",
+    },
+    {
+      id: "racing",
+      title: "Race to Victory",
+      description: "Use JS to control the car and win the race",
+      image: racingThumbnail, 
+      route: "/code-play/racing",
+    },
+  ];
 
   return (
     <>
@@ -62,22 +82,28 @@ function CodePlay() {
           </div>
 
           <div className="challenges-container">
-
             <h2 className="challenges-title">Challenges</h2>
 
             <div className="challenges-card-container">
-
-                <div className="challenges-card">
-                    <img src={lightBackgroundImage} alt="" className="challenge-thumbnail"/>
-                    <h4 className="challenge-card-title">Score A Goal</h4>
-                    <p className="challenge-card-description">Use CSS Or JS to Animate The Ball Into The Net</p>
+              {challenges.map((challenge) => (
+                <div
+                  key={challenge.id}
+                  className="challenges-card"
+                  onClick={() => navigate(challenge.route)}
+                >
+                  <img
+                    src={challenge.image}
+                    alt={challenge.title}
+                    className="challenge-thumbnail"
+                  />
+                  <h4 className="challenge-card-title">{challenge.title}</h4>
+                  <p className="challenge-card-description">
+                    {challenge.description}
+                  </p>
                 </div>
-                
-                
+              ))}
             </div>
-
           </div>
-
         </div>
       </div>
     </>

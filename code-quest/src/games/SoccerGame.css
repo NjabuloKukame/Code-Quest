@@ -1,0 +1,214 @@
+body.soccer-game-body {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  color: var(--light-txt-color);
+}
+
+body.soccer-game-body.dark-mode {
+  background: linear-gradient(135deg, #122d42, #1e293b);
+  color: #d1d5db;
+}
+
+.code-play-game-container {
+  display: flex;
+  flex-direction: row;
+  height: 97vh;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  box-sizing: border-box;
+  gap: 2rem;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+    -10px -10px 20px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dark-mode .code-play-game-container {
+  background: rgba(30, 41, 59, 0.8);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
+    -5px -5px 15px rgba(30, 41, 59, 0.5);
+}
+
+.code-play-game-preview-box,
+.code-play-code-editor {
+  border-radius: 1rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+    -10px -10px 20px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  color: #333;
+}
+
+.dark-mode .code-play-game-preview-box,
+.dark-mode .code-play-code-editor {
+  background: rgba(30, 41, 59, 0.9);
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+  color: #d1d5db;
+}
+
+.code-play-game-preview-box {
+  flex: 2;
+}
+
+.code-play-code-editor {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-play-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  margin-top: 1rem;
+}
+
+.code-play-buttons button{
+  padding: 1rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  width: 130px;
+  border: none;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--black);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.code-play-buttons button:hover{
+  background: linear-gradient(145deg, #7da7b4, #5a8d99);
+  transform: scale(1.05);
+}
+
+.dark-mode .code-play-buttons button {
+  background: linear-gradient(145deg, #264653, #2a9d8f);
+  color: var(--white);
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .code-play-buttons button:hover {
+  background: linear-gradient(145deg, #7da7b4, #5a8d99);
+  transform: scale(1.05);
+}
+
+.challenge-header {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--light-txt-color);
+  text-align: center;
+  padding: 13px 19px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05),
+    -3px -3px 5px rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+  position: absolute;
+  z-index: 10;
+}
+
+.challenge-description {
+  position: absolute;
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: var(--light-txt-color);
+}
+
+.dark-mode .challenge-description {
+  color: #d1d5db;
+}
+
+.dark-mode .challenge-header {
+  color: #d1d5db;
+  background-color: rgba(30, 41, 59, 0.8);
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.challenge-preview-box {
+  margin-top: 15%;
+  height: 495px;
+  position: relative;
+  
+}
+
+.soccer-container {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top,
+      #556b2f 0%,
+      #7fff00 40%,
+      #7fff00 50%,
+      #add8e6 50.1%,
+      #add8e6 55%,
+      #87ceeb 100%);
+  border-radius: 10px;
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Goal */
+.goal {
+  width: 45%;
+  aspect-ratio: 9 / 5;
+  border-top: 9px solid white;
+  border-left: 9px solid white;
+  border-right: 9px solid white;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  background: repeating-linear-gradient(to right,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3) 2px,
+      transparent 2px,
+      transparent 12px),
+    repeating-linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3) 2px,
+      transparent 2px,
+      transparent 12px);
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.5px);
+  background-size: cover;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translateX(-50%) perspective(800px) rotateX(5deg);
+  transform-origin: bottom center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+/* Keeper Image */
+.keeper-image {
+  position: absolute;
+  width: 39%;
+  height: auto; 
+  top: 15%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  object-fit: contain; 
+  pointer-events: none;
+  z-index: 1; 
+}
+
+
+/* Ball */
+.ball {
+  position: absolute;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  width: 40px;
+  height: 40px;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}

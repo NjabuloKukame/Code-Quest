@@ -99,7 +99,7 @@ body.code-play-body .background-image {
     border: 2px solid var(--white);
     border-radius: 20px;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 10px;
     flex-direction: column;
     height: 280px;
     width: 250px;
@@ -115,18 +115,21 @@ body.code-play-body .background-image {
 
 .challenges-card:hover{
     background: var(--light-codeplay-bg-color);
+    color: var(--light-txt-color);
     box-shadow: 0 0 30px rgba(255, 223, 0, 0), 0px 20px 50px rgba(0, 0, 0, .2), inset 1px 1px 3px hsla(0, 0%, 100%, .1);
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
 
 .dark-mode .challenges-card:hover{
     background: var(--dark-mode-dark-green); 
+    color: var(--white);
 }
 
 .challenge-thumbnail{
-    width: auto;
-    height: 175px;
+    width: 200px;
+    height: 180px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .challenge-card-title{
