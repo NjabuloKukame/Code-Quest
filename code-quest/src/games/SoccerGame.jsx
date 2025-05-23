@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDarkMode } from "../components/DarkMode";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Editor from "@monaco-editor/react";
 import "./SoccerGame.css";
 import SoccerBall from "../assets/soccerball.png";
@@ -10,20 +12,6 @@ function SoccerGame() {
   const [userCSS, setUserCSS] = useState("");
   const [isRunning, setIsRunning] = useState(false);
   const styleTagRef = useRef(null);
-
-  // const runUserCSS = () => {
-  //   let existingStyle = document.getElementById("user-style");
-  
-  //   if (existingStyle) {
-  //     existingStyle.innerHTML = userCSS;
-  //   } else {
-  //     const style = document.createElement("style");
-  //     style.id = "user-style";
-  //     style.innerHTML = userCSS;
-  //     document.head.appendChild(style);
-  //   }
-  // };
-  
 
   useEffect(() => {
     document.body.classList.add("soccer-game-body");
@@ -62,12 +50,46 @@ function SoccerGame() {
     if (!isRunning) {
       injectCSS(userCSS);
       setIsRunning(true);
+  
+      setTimeout(() => {
+        const ball = document.querySelector(".ball");
+        const goal = document.querySelector(".goal");
+        const keeper = document.querySelector(".keeper-image");
+  
+        if (!ball || !goal || !keeper) return;
+  
+        const ballRect = ball.getBoundingClientRect();
+        const goalRect = goal.getBoundingClientRect();
+        const keeperRect = keeper.getBoundingClientRect();
+  
+        const isCollision = (rect1, rect2) => {
+          return !(
+            rect1.right < rect2.left ||
+            rect1.left > rect2.right ||
+            rect1.bottom < rect2.top ||
+            rect1.top > rect2.bottom
+          );
+        };
+  
+        const ballHitsGoal = isCollision(ballRect, goalRect);
+        const ballHitsKeeper = isCollision(ballRect, keeperRect);
+  
+        if (ballHitsKeeper) {
+          toast.error("🧤 Saved by the keeper!");
+        } else if (ballHitsGoal) {
+          toast.success("⚽ Goal!");
+        } else {
+          toast.info("🚫 Missed!");
+        }
+        
+      }, 800); 
     } else {
       removeInjectedStyles();
       resetBall();
       setIsRunning(false);
     }
   };
+  
 
   return (
     <>
@@ -122,6 +144,7 @@ function SoccerGame() {
           </div>
         </div>
       </div>
+      <ToastContainer position="top-center" autoClose={2000} pauseOnHover={false} />
     </>
   );
 }

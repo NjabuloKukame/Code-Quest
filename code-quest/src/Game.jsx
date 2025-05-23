@@ -169,10 +169,10 @@ function Game() {
           <button
             className="hint-btn"
             onClick={() => {
-              const hints = challenge.hint; // { hint1, hint2, hint3 }
+              const hints = challenge.hint; 
               const hintKeys = ["hint1", "hint2", "hint3"];
 
-              // Get current step for this challenge (fallback to 0)
+             
               const currentStep = hintStepMap[challenge.id] || 0;
 
               if (
@@ -180,14 +180,12 @@ function Game() {
                 hints[hintKeys[currentStep]]
               ) {
                 toast.info(hints[hintKeys[currentStep]]);
-
-                // Increment step for this challenge only
+               
                 setHintStepMap((prevMap) => ({
                   ...prevMap,
                   [challenge.id]: currentStep + 1,
                 }));
 
-                // Track total hints used (global)
                 setHintsUsed((prev) => prev + 1);
               } else {
                 toast.info("No more hints available.");
