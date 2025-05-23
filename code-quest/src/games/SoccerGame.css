@@ -194,9 +194,22 @@ body.soccer-game-body.dark-mode {
   top: 15%; 
   left: 50%;
   transform: translateX(-50%) translateY(0);
+  transition: transform 0.4s ease;
   object-fit: contain; 
   pointer-events: none;
   z-index: 1; 
+}
+
+.keeper-left {
+  transform: translateX(-120%) rotate(-15deg);
+}
+
+.keeper-right {
+  transform: translateX(20%) rotate(15deg);
+}
+
+.keeper-center {
+  transform: translateX(-50%) rotate(0deg);
 }
 
 

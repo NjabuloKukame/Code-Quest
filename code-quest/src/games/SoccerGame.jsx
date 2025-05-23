@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDarkMode } from "../components/DarkMode";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Editor from "@monaco-editor/react";
 import "./SoccerGame.css";
 import SoccerBall from "../assets/soccerball.png";
@@ -11,6 +11,7 @@ function SoccerGame() {
   const { darkMode } = useDarkMode();
   const [userCSS, setUserCSS] = useState("");
   const [isRunning, setIsRunning] = useState(false);
+  const [keeperPosition, setKeeperPosition] = useState("center");
   const styleTagRef = useRef(null);
 
   useEffect(() => {
@@ -39,29 +40,35 @@ function SoccerGame() {
   const resetBall = () => {
     const ball = document.querySelector(".ball");
     if (ball) {
-      ball.style = ""; 
-      ball.classList.remove("animated-ball"); 
-      void ball.offsetWidth; 
+      ball.style = "";
+      ball.classList.remove("animated-ball");
+      void ball.offsetWidth;
       ball.classList.add("ball");
     }
+
+    setKeeperPosition("center");
   };
 
   const handleRunClick = () => {
     if (!isRunning) {
       injectCSS(userCSS);
       setIsRunning(true);
-  
+
+      const directions = ["left", "center", "right"];
+      const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+      setKeeperPosition(randomDirection);
+
       setTimeout(() => {
         const ball = document.querySelector(".ball");
         const goal = document.querySelector(".goal");
         const keeper = document.querySelector(".keeper-image");
-  
+
         if (!ball || !goal || !keeper) return;
-  
+
         const ballRect = ball.getBoundingClientRect();
         const goalRect = goal.getBoundingClientRect();
         const keeperRect = keeper.getBoundingClientRect();
-  
+
         const isCollision = (rect1, rect2) => {
           return !(
             rect1.right < rect2.left ||
@@ -70,10 +77,10 @@ function SoccerGame() {
             rect1.top > rect2.bottom
           );
         };
-  
+
         const ballHitsGoal = isCollision(ballRect, goalRect);
         const ballHitsKeeper = isCollision(ballRect, keeperRect);
-  
+
         if (ballHitsKeeper) {
           toast.error("🧤 Saved by the keeper!");
         } else if (ballHitsGoal) {
@@ -81,15 +88,13 @@ function SoccerGame() {
         } else {
           toast.info("🚫 Missed!");
         }
-        
-      }, 800); 
+      }, 800);
     } else {
       removeInjectedStyles();
       resetBall();
       setIsRunning(false);
     }
   };
-  
 
   return (
     <>
@@ -103,15 +108,18 @@ function SoccerGame() {
           <div className="challenge-preview-box">
             <div className="soccer-container">
               <div className="goal">
-                <img src={GoalKeeper} alt="Goalkeeper" className="keeper-image" />
+                <img
+                  src={GoalKeeper}
+                  alt="Goalkeeper"
+                  className={`keeper-image keeper-${keeperPosition}`} 
+                />
               </div>
-              <img src={SoccerBall} alt="Soccer Ball Image" className="ball"/>
+              <img src={SoccerBall} alt="Soccer Ball Image" className="ball" />
             </div>
           </div>
         </div>
 
         <div className="code-play-code-editor">
-          
           <div className={`monaco-container ${darkMode ? "dark" : "light"}`}>
             <Editor
               height="100%"
@@ -140,11 +148,14 @@ function SoccerGame() {
             </button>
             <button>Hint</button>
             <button>Submit</button>
-
           </div>
         </div>
       </div>
-      <ToastContainer position="top-center" autoClose={2000} pauseOnHover={false} />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        pauseOnHover={false}
+      />
     </>
   );
 }
