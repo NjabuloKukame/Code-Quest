@@ -13,6 +13,14 @@ function SoccerGame() {
   const [isRunning, setIsRunning] = useState(false);
   const [keeperPosition, setKeeperPosition] = useState("center");
   const styleTagRef = useRef(null);
+  const [hintIndex, setHintIndex] = useState(0);
+  const [hints, setHints] = useState([
+    "Think about how to move something across the screen...",
+    "You probably need to use a property that affects position.",
+    "Try using 'position' and 'left' or 'transform'.",
+    "Animating 'left' or using 'translateX' could help.",
+    "Use '@keyframes' and 'animation' to kick the ball!",
+  ]);
 
   useEffect(() => {
     document.body.classList.add("soccer-game-body");
@@ -55,7 +63,8 @@ function SoccerGame() {
       setIsRunning(true);
 
       const directions = ["left", "center", "right"];
-      const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+      const randomDirection =
+        directions[Math.floor(Math.random() * directions.length)];
       setKeeperPosition(randomDirection);
 
       setTimeout(() => {
@@ -96,6 +105,17 @@ function SoccerGame() {
     }
   };
 
+  const handleHintClick = () => {
+    if (hintIndex < hints.length - 1) {
+      toast.info(`💡 Hint ${hintIndex + 1}: ${hints[hintIndex]}`);
+      setHintIndex((prev) => prev + 1);
+    } else if (hintIndex === hints.length - 1) {
+      toast.info(`💡 Hint ${hintIndex + 1}: ${hints[hintIndex]}`);
+      toast.warning("🚫 No more hints!");
+      setHintIndex((prev) => prev + 1);
+    }
+  };
+
   return (
     <>
       <div className="code-play-game-container">
@@ -111,7 +131,7 @@ function SoccerGame() {
                 <img
                   src={GoalKeeper}
                   alt="Goalkeeper"
-                  className={`keeper-image keeper-${keeperPosition}`} 
+                  className={`keeper-image keeper-${keeperPosition}`}
                 />
               </div>
               <img src={SoccerBall} alt="Soccer Ball Image" className="ball" />
@@ -146,7 +166,12 @@ function SoccerGame() {
             <button onClick={handleRunClick}>
               {isRunning ? "Reset" : "Run"}
             </button>
-            <button>Hint</button>
+            <button
+              onClick={handleHintClick}
+              disabled={hintIndex >= hints.length}
+            >
+              Hint
+            </button>
             <button>Submit</button>
           </div>
         </div>
