@@ -29,7 +29,7 @@ function CodePlay() {
       title: "Score A Goal",
       description: "Use CSS to animate the ball into the net",
       image: soccerThumbnail, 
-      route: "/code-play/soccer",
+      route: "/code-play/Soccer Game",
     },
     {
       id: "racing",

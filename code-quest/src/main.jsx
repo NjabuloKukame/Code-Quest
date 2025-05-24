@@ -10,6 +10,7 @@ import GameComplete from "./GameComplete.jsx";
 import CodePlay from "./CodePlay.jsx";
 import SoccerGame from "./games/SoccerGame.jsx";
 import RacingGame from "./games/RacingGame.jsx"; 
+import CodePlayGameComplete from "./games/CodePlayGameComplete.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,8 +20,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<App />} />
           <Route path="/choose-path" element={<ChoosePath />} />
           <Route path="/code-play" element={<CodePlay />} />
-          <Route path="/code-play/soccer" element={<SoccerGame />} />
+          <Route path="/code-play/Soccer Game" element={<SoccerGame />} />
           <Route path="/code-play/racing" element={<RacingGame />} />
+          <Route path="/code-play-complete" element={<CodePlayGameComplete />} />
           <Route path="/game/:language" element={<Game />} />
           <Route path="/game-complete" element={<GameComplete />} />
 
