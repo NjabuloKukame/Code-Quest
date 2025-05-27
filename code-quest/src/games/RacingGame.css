@@ -1,0 +1,130 @@
+.race-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.1),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #87ceeb, #a7d7ef);
+  z-index: 1;
+}
+
+.road {
+    position: absolute;
+    top: 35%;
+    bottom: 0; 
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+    perspective: 500px;
+  }
+  
+  .road-image {
+    height: 140%; 
+    transform: rotateX(15deg) scaleY(1.2); 
+    object-fit: contain;
+    align-self: flex-end;
+    transform-origin: bottom center;
+    will-change: transform;
+  }
+
+  .grass {
+  position: absolute;
+  bottom: 0;
+  height: 75%;
+  width: 100%;
+  background: linear-gradient(to top, #3f7323 0%, #6dbf42 100%);
+  z-index: 1; 
+  pointer-events: none;
+}
+
+
+.left-grass {
+  left: 0;
+}
+
+.right-grass {
+  right: 0;
+}
+
+.car {
+    position: absolute;
+    /* bottom: 28%;  */
+    left: 50%;
+    /* transform: translateX(-50%); */
+    width: 290px; 
+    z-index: 4; 
+    pointer-events: none;
+    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.4));
+}
+
+.car-reset-animation {
+  animation: none !important;
+  bottom: 28% !important; /* Explicitly reset to initial value */
+  left: 50% !important; /* Explicitly reset to initial value */
+  transform: translateX(-50%) scale(1) !important; /* Explicitly reset scale to 1 (full size) */
+  transition: none !important;
+}
+
+.tesla-car {
+  position: absolute;
+  width: 290px; 
+  /* transform: translateX(-50%) scale(0.3);  */
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+  /* transition: top 0.2s ease-in-out, left 0.3s ease-out; */
+}
+
+.tesla-left {
+  left: 48%; 
+}
+
+.tesla-center {
+  left: 50%;
+}
+
+.tesla-right {
+  left: 52%; 
+}
+
+  
+.hills {
+  position: absolute;
+  bottom: 70%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 109%;
+  height: 31%; 
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.tree-layer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3; /* Above grass and hills, below road & car */
+  pointer-events: none;
+}
+
+.tree {
+  position: absolute;
+  bottom: 5%; /* roots into the grass */
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}

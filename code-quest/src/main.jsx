@@ -21,7 +21,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/choose-path" element={<ChoosePath />} />
           <Route path="/code-play" element={<CodePlay />} />
           <Route path="/code-play/Soccer Game" element={<SoccerGame />} />
-          <Route path="/code-play/racing" element={<RacingGame />} />
+          <Route path="/code-play/Racing Game" element={<RacingGame />} />
           <Route path="/code-play-complete" element={<CodePlayGameComplete />} />
           <Route path="/game/:language" element={<Game />} />
           <Route path="/game-complete" element={<GameComplete />} />

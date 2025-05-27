@@ -36,7 +36,7 @@ function CodePlay() {
       title: "Race to Victory",
       description: "Use JS to control the car and win the race",
       image: racingThumbnail, 
-      route: "/code-play/racing",
+      route: "/code-play/Racing Game",
     },
   ];
 
