@@ -75,9 +75,9 @@
 
 .car-reset-animation {
   animation: none !important;
-  bottom: 28% !important; /* Explicitly reset to initial value */
-  left: 50% !important; /* Explicitly reset to initial value */
-  transform: translateX(-50%) scale(1) !important; /* Explicitly reset scale to 1 (full size) */
+  bottom: 28% !important; 
+  left: 50% !important;
+  transform: translateX(-50%) scale(1) !important; 
   transition: none !important;
 }
 
@@ -120,13 +120,13 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 3; /* Above grass and hills, below road & car */
+  z-index: 3; 
   pointer-events: none;
 }
 
 .tree {
   position: absolute;
-  bottom: 5%; /* roots into the grass */
+  bottom: 5%;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }

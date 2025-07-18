@@ -143,6 +143,10 @@ function GameComplete() {
         <button onClick={() => navigate("/choose-path")}>
           Choose Different Language
         </button>
+
+        <button onClick={() => navigate("/")}>
+          Home
+        </button>
       </div>
     </div>
   );
