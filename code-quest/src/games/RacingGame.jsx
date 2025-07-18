@@ -259,12 +259,51 @@ function RacingGame() {
         if (isCollision(teslaRect, mercedesRect)) {
           stopAllAnimationsAndAlert();
           toast.error("💥 ACCIDENT! Click Reset to try again.");
-          setIsRunning(true);
           return;
         }
       }
 
-     
+      // Collision Check (Car-to-Grass and Trees)
+      if (mercedesCarRef.current && leftGrassRef.current && rightGrassRef.current) {
+        const mercedesRect = mercedesCarRef.current.getBoundingClientRect();
+        const roadElement = document.querySelector(".road");
+        const roadRect = roadElement.getBoundingClientRect();
+
+        const isCarOnRoad = mercedesRect.left > roadRect.left && mercedesRect.right < roadRect.right;
+
+        if (!isCarOnRoad) {
+          const leftGrassRect = leftGrassRef.current.getBoundingClientRect();
+          const rightGrassRect = rightGrassRef.current.getBoundingClientRect();
+
+          if (isCollision(mercedesRect, leftGrassRect) || isCollision(mercedesRect, rightGrassRect)) {
+            stopAllAnimationsAndAlert();
+            toast.error("💥 You drove into the grass! Click Reset to try again.");
+            setIsRunning(true);
+            return;
+          }
+        }
+
+        const treeElements = document.querySelectorAll(".tree");
+        treeElements.forEach((tree) => {
+          const treeRect = tree.getBoundingClientRect();
+          const treeHorizontalPadding = treeRect.width * 0.2;
+          const treeVerticalPadding = treeRect.height * 0.2;
+
+          const adjustedTreeRect = {
+            left: treeRect.left + treeHorizontalPadding,
+            right: treeRect.right - treeHorizontalPadding,
+            top: treeRect.top + treeVerticalPadding,
+            bottom: treeRect.bottom - treeVerticalPadding,
+          };
+
+          if (isCollision(mercedesRect, adjustedTreeRect)) {
+            stopAllAnimationsAndAlert();
+            toast.error("💥 You hit a tree! Click Reset to try again.");
+            setIsRunning(true);
+            return;
+          }
+        });
+      }
       // End Collision Check For Mercedes
       if (currentMercedesBottom >= mercedesEndBottom) {
         clearInterval(mercedesRunIntervalRef.current);
@@ -280,31 +319,43 @@ function RacingGame() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const ball = document.querySelector(".ball");
-    const goal = document.querySelector(".goal");
-    const keeper = document.querySelector(".keeper-image");
+    const mercedesCar = mercedesCarRef.current;
+    const leftGrass = leftGrassRef.current;
+    const rightGrass = rightGrassRef.current;
+    const treeElements = document.querySelectorAll(".tree");
 
-    if (!ball || !goal || !keeper) return;
+    if (!mercedesCar || !leftGrass || !rightGrass) {
+      toast.error("Game elements not found!");
+      return;
+    }
 
-    const ballRect = ball.getBoundingClientRect();
-    const goalRect = goal.getBoundingClientRect();
-    const keeperRect = keeper.getBoundingClientRect();
+    const mercedesRect = mercedesCar.getBoundingClientRect();
+    const leftGrassRect = leftGrass.getBoundingClientRect();
+    const rightGrassRect = rightGrass.getBoundingClientRect();
 
-    const isCollision = (rect1, rect2) => {
-      return !(
-        rect1.right < rect2.left ||
-        rect1.left > rect2.right ||
-        rect1.bottom < rect2.top ||
-        rect1.top > rect2.bottom
-      );
-    };
+    // Check collision with grass
+    if (
+      isCollision(mercedesRect, leftGrassRect) ||
+      isCollision(mercedesRect, rightGrassRect)
+    ) {
+      toast.error("❌ Mercedes is on the grass!");
+      setAttempts((prev) => prev + 1);
+      return;
+    }
 
-    const ballHitsGoal = isCollision(ballRect, goalRect);
-    const ballHitsKeeper = isCollision(ballRect, keeperRect);
+    // Check collision with trees
+    for (const tree of treeElements) {
+      const treeRect = tree.getBoundingClientRect();
+      if (isCollision(mercedesRect, treeRect)) {
+        toast.error("❌ Mercedes hit a tree!");
+        setAttempts((prev) => prev + 1);
+        return;
+      }
+    }
 
-    if (ballHitsGoal && !ballHitsKeeper) {
+    // Check if Mercedes reached finish line (example: bottom >= 88%)
+    if (mercedesCarBottom >= 88) {
       const timeTaken = Date.now() - startTime;
-
       navigate("/code-play-complete", {
         state: {
           timeTaken,
@@ -316,8 +367,8 @@ function RacingGame() {
         },
       });
     } else {
-      toast.error("🧱 Not a valid goal yet!");
-      setAttempts((prev) => prev + 1); // TRACK ATTEMPTS
+      toast.error("🚗 Mercedes hasn't reached the finish line yet!");
+      setAttempts((prev) => prev + 1);
     }
   };
 
@@ -358,7 +409,7 @@ function RacingGame() {
                 <img
                   src={Tree}
                   className="tree"
-                  style={{ left: "17%", height: "55%", bottom: "30%" }}
+                  style={{ left: "14%", height: "55%", bottom: "30%" }}
                 />
                 <img
                   src={Tree}

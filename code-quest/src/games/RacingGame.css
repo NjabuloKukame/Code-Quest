@@ -45,7 +45,7 @@
   position: absolute;
   bottom: 0;
   height: 75%;
-  width: 100%;
+  width: 50%;
   background: linear-gradient(to top, #3f7323 0%, #6dbf42 100%);
   z-index: 1; 
   pointer-events: none;
@@ -54,10 +54,12 @@
 
 .left-grass {
   left: 0;
+  /* clip-path: polygon(0 0, 100% 0, 40% 100%, 0 100%); */
 }
 
 .right-grass {
   right: 0;
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%); */
 }
 
 .car {
